@@ -8,15 +8,24 @@ use Tests\TestCase;
 
 class HelloTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example()
-    {
-        $response = $this->get('/');
+   public function testHello()  
+   {
+    $this->get("/hello")->assertSeeText("Ivriel");
+   }
 
-        $response->assertStatus(200);
-    }
+   public function testHelloWorld()  
+   {
+    $this->get("/world")->assertSeeText("Ivriel");
+   }
+
+    public function testHelloView()  // nampilin langsung tanpa bikin route
+   {
+    $this->view("hello",["name"=> "Ivriel"])->assertSeeText("Ivriel");
+   }
+
+    public function testHelloWorldView()  // nampilin langsung tanpa bikin route
+   {
+     $this->view("hello",["name"=> "Ivriel"])->assertSeeText("Ivriel");
+   }
+
 }

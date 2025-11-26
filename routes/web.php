@@ -22,3 +22,9 @@ Route::get("/hello",function(){
         "name"=>"Ivriel"
     ]);
 });
+
+Route::get("/world",function(){
+    return view("hello.world",[
+        "name"=>"Ivriel"
+    ]);
+});
